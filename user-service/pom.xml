@@ -6,6 +6,7 @@
 		<groupId>com.stackroute</groupId>
 		<artifactId>bookyourslot</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		 <packaging>war</packaging>
 		<relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
