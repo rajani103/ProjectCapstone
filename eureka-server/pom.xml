@@ -11,6 +11,7 @@
 	<groupId>com.stackroute</groupId>
 	<artifactId>eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	 <packaging>war</packaging>
 	<name>eureka-server</name>
 	<description>Eureka server for book your slot</description>
 	<properties>
