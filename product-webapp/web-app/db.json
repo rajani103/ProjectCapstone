@@ -1,0 +1,105 @@
+{
+  "registration": [
+    {
+      "phoneNo": 3276326837,
+      "password": "testuser1",
+      "email": "testuser1@gmail.com",
+      "name": "testuser1",
+      "userrole": "interviewer",
+      "department": "frontend",
+      "slots": [
+        {
+          "date": "2022-07-01",
+          "startTime": "04:58",
+          "endTime": "05:59",
+          "slotStatus": "available",
+          "description": "khkh",
+          "allSlots": [
+            {
+              "startTime": "04:58 AM",
+              "endTime": "05:59 AM",
+              "slotStatus": "available",
+              "description": "khkhhgf",
+              "bookedBy": 2
+            },
+            {
+              "startTime": "08:58 AM",
+              "endTime": "09:59 AM",
+              "slotStatus": "available",
+              "description": "testbooked",
+              "bookedBy": 2
+            },
+            {
+              "endTime": "03:22 AM",
+              "startTime": "02:22 AM",
+              "description": "des",
+              "slotStatus": "not-available"
+            }
+          ]
+        },
+        {
+          "date": "2022-07-02",
+          "startTime": "17:58",
+          "endTime": "18:59",
+          "slotStatus": "available",
+          "description": "khkhk",
+          "allSlots": [
+            {
+              "endTime": "06:59 AM",
+              "startTime": "05:58 AM",
+              "description": "khkhk",
+              "slotStatus": "available"
+            },
+            {
+              "startTime": "05:59 AM",
+              "endTime": "06:01 AM",
+              "slotStatus": "available",
+              "description": "khjkfhks\n",
+              "bookedBy": 2
+            }
+          ]
+        },
+        {
+          "date": "2022-07-28",
+          "startTime": "14:40",
+          "endTime": "15:40",
+          "slotStatus": "available",
+          "description": "des",
+          "allSlots": [
+            {
+              "endTime": "03:40 AM",
+              "startTime": "02:40 AM",
+              "description": "des",
+              "slotStatus": "available"
+            }
+          ]
+        },
+        {
+          "date": "2022-07-06",
+          "startTime": "14:56",
+          "endTime": "16:07",
+          "slotStatus": "available",
+          "description": "des",
+          "allSlots": [
+            {
+              "endTime": "04:07 AM",
+              "startTime": "02:56 AM",
+              "description": "des",
+              "slotStatus": "not-available"
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "phoneNo": 8638276487,
+      "password": "testuser2",
+      "email": "testuser2@gmail.com",
+      "name": "testuser2",
+      "userrole": "tagTeam",
+      "department": "",
+      "id": 2
+    }
+  ]
+}

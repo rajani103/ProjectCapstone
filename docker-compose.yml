@@ -1,0 +1,118 @@
+version: '2'
+services:
+  eureka-server:
+    build: eureka-server/
+    container_name: eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8761:8761
+    depends_on:
+      - config-server
+  api-gateway:
+    build: api-gateway/
+    container_name: api-gateway
+    depends_on:
+      - config-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+  config-server:
+    build: config-server/
+    container_name: config-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8888:8888
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USERNAME: 'root'
+      MYSQL_ROOT_PASSWORD: 'Mmhm@1993'
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - "27017:27017"
+
+  user-service:
+    container_name: user-service
+    build: user-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongodb
+      - config-server
+      - rabbitmq
+    restart: always
+
+  tag-team-service:
+    container_name: tag-team-service
+    build: tag-team-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongodb
+      - config-server
+    restart: always
+
+  interviewer-service:
+    container_name: interviewer-service
+    build: interviewer-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8087:8087
+    depends_on:
+      - config-server
+      - mongodb
+    restart: always
+
+  email-service:
+    container_name: email-service
+    build: email-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8085:8085
+    restart: always
+
+  authentication-service:
+    container_name: authentication-service
+    build: authentication-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8095:8095
+    depends_on:
+      - mysql
+      - config-server
+      - rabbitmq
+    restart: always
