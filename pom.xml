@@ -11,9 +11,10 @@
 	<groupId>com.stackroute</groupId>
 	<artifactId>bookyourslot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>bookyourslot</name>
 	<description>Spot Your Vaccine</description>
-	<packaging>pom</packaging>
+	 <packaging>war</packaging>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
