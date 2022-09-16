@@ -1,0 +1,58 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+server:
+  port: 8080
+management:
+  security:
+    enabled: false
+spring:
+  application:
+    name: api-gateway
+  main:
+    web-application-type: reactive
+  profiles:
+    active: default
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            exposedHeaders: "*"
+      routes:
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - RewritePath=/user-service(?<segment>/?.*), $\{segment}
+        - id: authentication-service
+          uri: http://localhost:8095
+          predicates:
+            - Path=/authentication-service/**
+          filters:
+            - RewritePath=/authentication-service(?<segment>/?.*), $\{segment}
+        - id: email-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/email-service/**
+          filters:
+            - RewritePath=/email-service(?<segment>/?.*), $\{segment}
+        - id: tag-team-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/tag-team-service/**
+          filters:
+            - RewritePath=/tag-team-service(?<segment>/?.*), $\{segment}
+        - id: interviewer-service
+          uri: http://localhost:8087
+          predicates:
+            - Path=/interviewer-service/**
+          filters:
+            - RewritePath=/interviewer-service(?<segment>/?.*), $\{segment}
